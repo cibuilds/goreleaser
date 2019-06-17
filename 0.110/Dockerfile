@@ -72,7 +72,7 @@ FROM cibuilds/docker:18.09
 
 LABEL maintainer="Ricardo N Feliciano (FelicianoTech) <Ricardo@Feliciano.Tech>"
 
-COPY --from=0 /usr/local/go/bin/go /usr/local/go/bin/go
+COPY --from=0 /usr/local/go /usr/local/go
 
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
