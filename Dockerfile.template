@@ -4,7 +4,7 @@
 # This is a multi-stage Dockerfile. The first Docker build, is pulled directly from the Docker Library's Go image.
 # https://github.com/docker-library/golang/blob/4116b7b8a77b405d9319eed02a8d326a9ef4313e/1.12/alpine3.9/Dockerfile
 ###
-FROM alpine:3.9
+FROM alpine:3.10
 
 RUN apk add --no-cache \
 		ca-certificates
@@ -14,7 +14,7 @@ RUN apk add --no-cache \
 # - docker run --rm debian:stretch grep '^hosts:' /etc/nsswitch.conf
 RUN [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf
 
-ENV GOLANG_VERSION 1.12.6
+ENV GOLANG_VERSION 1.13.4
 
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
@@ -43,7 +43,7 @@ RUN set -eux; \
 	esac; \
 	\
 	wget -O go.tgz "https://golang.org/dl/go$GOLANG_VERSION.src.tar.gz"; \
-	echo 'c96c5ccc7455638ae1a8b7498a030fe653731c8391c5f8e79590bce72f92b4ca *go.tgz' | sha256sum -c -; \
+	echo '95dbeab442ee2746b9acf0934c8e2fc26414a0565c008631b04addb8c02e7624 *go.tgz' | sha256sum -c -; \
 	tar -C /usr/local -xzf go.tgz; \
 	rm go.tgz; \
 	\
@@ -68,7 +68,7 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
 
-FROM cibuilds/docker:18.09
+FROM cibuilds/docker:19.03
 
 LABEL maintainer="Ricardo N Feliciano (FelicianoTech) <Ricardo@Feliciano.Tech>"
 
