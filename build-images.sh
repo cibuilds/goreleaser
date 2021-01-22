@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build --file 0.154/Dockerfile -t cibuilds/goreleaser:latest -t cibuilds/goreleaser:0.154.0  -t cibuilds/goreleaser:0.154 .
+docker build --file 0.155/Dockerfile -t cibuilds/goreleaser:latest -t cibuilds/goreleaser:0.155.0  -t cibuilds/goreleaser:0.155 .
