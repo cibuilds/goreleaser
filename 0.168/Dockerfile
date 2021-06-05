@@ -76,7 +76,7 @@ COPY --from=0 /usr/local/go /usr/local/go
 
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
-ENV GORELEASER_VERSION=0.168.1
+ENV GORELEASER_VERSION=0.168.2
 ENV GH_URL=https://github.com/goreleaser/goreleaser/releases/download/v${GORELEASER_VERSION}/goreleaser_Linux_x86_64.tar.gz
 
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
